@@ -14,7 +14,7 @@ const Form = ({ theme, addItem }) => {
 
   return (
     <form onSubmit={onSubmit}>
-      <div className={`input-container ${theme}`}>
+      <div className={`input-wrapper ${theme}`}>
         <div className={`item-check ${theme}`}></div>
         <input type="text" value={text} placeholder="Create a new todo..." onChange={ evt => setText(evt.target.value) }/>
       </div>

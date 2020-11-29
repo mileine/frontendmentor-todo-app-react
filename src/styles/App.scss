@@ -64,7 +64,7 @@ ul {
 /* Form  
  --------------------*/
 
-.input-container {
+.input-wrapper {
   width: 100%;
   display: flex;
   align-items: center;
@@ -99,13 +99,14 @@ input:focus {
 }
 
 
-/* List
+/* LIST
 --------------------*/
 .item-check {
   border-radius: 50%;
   height: 24px;
   width: 24px;
   background: transparent;
+  transition: background-color 0.5s ease;
   margin-right: 10px;
   &.completed {
     border: none;
@@ -121,7 +122,10 @@ input:focus {
   }
 }
 
-.todo-list-container {
+.todo-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 540px;
   margin-top: 25px;
   border-radius: 5px;
@@ -138,6 +142,7 @@ input:focus {
 
 .todo-item{
   position: relative;
+  cursor: pointer;
   width: 100%;
   display: flex;
   align-items: center;
@@ -164,5 +169,20 @@ input:focus {
   &.dark {
     color: #C8CBE7;
     border-bottom: 1px solid #393A4B;
+  }
+}
+
+.todo-list-footer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* FILTER
+--------------------*/
+.filter-wrapper {
+  display: flex;
+  .filter-option.selected {
+    color: pink;
   }
 }
