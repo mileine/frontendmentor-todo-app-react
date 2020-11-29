@@ -7,6 +7,13 @@
   font-family: 'Josefin Sans', sans-serif; 
 }
 
+ul {
+  list-style: none;
+}
+
+/* LAYOUT
+ --------------------*/
+
 .container {
   height: 100vh;
   width: 100vw;
@@ -31,10 +38,15 @@
   flex-direction: column;
 }
 
+/* HEADER 
+ --------------------*/
+
 .header {
   color: #fff;
   display: flex;
   justify-content: space-between;
+  margin-top: 70px;
+  margin-bottom: 50px;
   .title {
     letter-spacing: 15px;
     font-size: 40px;
@@ -47,4 +59,110 @@
   border: none;
   width: 25px;
   height: 25px;
+}
+
+/* Form  
+ --------------------*/
+
+.input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 15px 15px 20px;
+  border-radius: 5px;
+  &.light{
+    background: white;
+    box-shadow: 0px 35px 50px #C2C3D680;
+  } 
+  &.dark{
+    background: #25273D;
+    box-shadow: 0px 35px 50px #00000080;
+  }
+}
+
+input {
+  font-size: 18px;
+  letter-spacing: -0.25px;
+  background-color: transparent;
+  border-color: transparent;
+  padding: 10px;
+  width: 100%;
+  position: relative;
+  color: #393A4B;
+  &::placeholder {
+    color: #9495A5;
+  }
+}
+
+input:focus {
+  outline: none;
+}
+
+
+/* List
+--------------------*/
+.item-check {
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  background: transparent;
+  margin-right: 10px;
+  &.completed {
+    border: none;
+    background: url('../assets/images/icon-check.svg'), linear-gradient(135deg, hsl(192, 100%, 67%),hsl(280, 87%, 65%)),;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &.light {
+    border: 1px solid #E3E4F1;
+  }
+  &.dark {
+    border: 1px solid #393A4B;
+  }
+}
+
+.todo-list-container {
+  max-width: 540px;
+  margin-top: 25px;
+  border-radius: 5px;
+  min-height: 300px;
+  &.light{
+    background: white;
+    box-shadow: 0px 35px 50px #C2C3D680;
+  } 
+  &.dark{
+    background: #25273D;
+    box-shadow: 0px 35px 50px #00000080;
+  }
+}
+
+.todo-item{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 18px;
+  letter-spacing: -0.25px;
+  &.completed {
+    text-decoration: line-through;
+    &.light {
+      color: #D1D2DA;
+    }
+    &.dark {
+      color: #4D5067;
+    }
+  }
+  &:first-of-type {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  &.light {
+    color: #393A4B;
+    border-bottom: 1px solid #E3E4F1;
+  }
+  &.dark {
+    color: #C8CBE7;
+    border-bottom: 1px solid #393A4B;
+  }
 }
