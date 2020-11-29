@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './styles/App.scss';
+import Header from './components/Header'
 
 const App = () => {
   const [theme, setTheme] = useState('light')
@@ -11,7 +12,7 @@ const App = () => {
   return (
     <div className={`container ${theme}`}>
       <div className="main">
-        <h1 className="title">TODO</h1>
+        <Header theme={theme} toggleTheme={toggleTheme}/>
       </div>      
     </div>
   );
