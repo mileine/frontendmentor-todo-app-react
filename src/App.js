@@ -21,6 +21,7 @@ const App = () => {
 
   const updateItem = (key) => {
     const newList = [...items]
+    console.log(newList)
     newList[key].checked = !newList[key].checked
     setItems(newList)
   }
@@ -31,13 +32,17 @@ const App = () => {
     console.log(`depois: ${selectedFilter}`)
   }
 
+  const clearCompleted = () => {
+    const itemsArray = [...items]
+    setItems(itemsArray.filter(item => !item.checked))
+  }
 
   return (
     <div className={`container ${theme}`}>
       <div className="main">
         <Header theme={theme} toggleTheme={toggleTheme}/>
         <Form theme={theme} addItem={addItem}/>
-        <TodoList theme={theme} items={items} updateItem={updateItem} selectedFilter={selectedFilter} updateFilter={updateFilter}/>
+        <TodoList theme={theme} items={items} updateItem={updateItem} selectedFilter={selectedFilter} updateFilter={updateFilter} clearCompleted={clearCompleted}/>
       </div>      
     </div>
   );

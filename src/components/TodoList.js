@@ -1,46 +1,26 @@
 import React from 'react'
 import Filter from './Filter'
+import TodoItem from './TodoItem'
 
-const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter }) => {
+const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, clearCompleted }) => {
   
-  const renderedList = items.map((item, key) => {
+  const renderedList = items.map((item, id) => {
     return (
-      <li 
-        className={`todo-item ${item.checked ? 'completed' : 'normal' } ${theme}`} 
-        key={key} 
-        checked={item.checked}
-        onClick={() => updateItem(key)}>
-        <div className={`item-check ${item.checked ? 'completed' : ''} ${theme}`}></div>
-        {item.text}
-      </li>
+      <TodoItem key={id} id={id} theme={theme} updateItem={updateItem} checked={item.checked} text={item.text}/>
     )
   })
 
-  const renderedListActive = items.map((item, key) => {
+  const renderedListActive = items.map((item, id) => {
     if (item.checked) return ''
     return (
-      <li 
-        className={`todo-item ${item.checked ? 'completed' : 'normal' } ${theme}`} 
-        key={key} 
-        checked={item.checked}
-        onClick={() => updateItem(key)}>
-        <div className={`item-check ${item.checked ? 'completed' : ''} ${theme}`}></div>
-        {item.text}
-      </li>
+      <TodoItem key={id} id={id} theme={theme} updateItem={updateItem} checked={item.checked} text={item.text}/>
     )
   })
 
-  const renderedListCompleted = items.map((item, key) => {
+  const renderedListCompleted = items.map((item, id) => {
     if (!item.checked) return ''
     return (
-      <li 
-        className={`todo-item ${item.checked ? 'completed' : 'normal' } ${theme}`} 
-        key={key} 
-        checked={item.checked}
-        onClick={() => updateItem(key)}>
-        <div className={`item-check ${item.checked ? 'completed' : ''} ${theme}`}></div>
-        {item.text}
-      </li>
+      <TodoItem key={id} id={id} theme={theme} updateItem={updateItem} checked={item.checked} text={item.text}/>
     )
   })
 
@@ -53,9 +33,7 @@ const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter }) =>
   const getItemsLeft = () => {
     let completedItems = 0
     let total = items.length
-    items.map((item, key) => {
-      if (item.checked) completedItems++
-    })
+    completedItems = items.filter(item => item.checked).length
     return total - completedItems
   }
 
@@ -65,9 +43,9 @@ const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter }) =>
         { renderedFilteredList() }
       </ul>
       <div className="todo-list-footer">
-        <span>{ getItemsLeft() } items left</span>
-        <Filter selectedFilter={selectedFilter} updateFilter={updateFilter}/>
-        <a>Clear Completed</a>
+        <span className="items-left">{ getItemsLeft() } items left</span>
+        <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
+        <button className={`btn-clear ${theme}`} onClick={() => clearCompleted()}>Clear Completed</button>
       </div>
     </div>
   )
