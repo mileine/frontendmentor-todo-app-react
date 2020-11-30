@@ -11,6 +11,10 @@ ul {
   list-style: none;
 }
 
+button:focus {
+  outline: none;
+}
+
 /* LAYOUT
  --------------------*/
 
@@ -204,6 +208,8 @@ input:focus {
   justify-content: space-between;
   align-items: center;
   .items-left {
+    display: block;
+    width: 100px;
     color: #9495A5;
     font-size: 14px;
     letter-spacing: -0.25px;
@@ -230,11 +236,12 @@ input:focus {
 --------------------*/
 .filter-wrapper {
   display: flex;
+  width: 166px;
+  justify-content: space-between;
   .filter-option{
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-    padding: 10px;
     background: transparent;
     border: none;
     &:focus {
