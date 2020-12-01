@@ -17,6 +17,7 @@ const TodoItem = ({ index, id, checked, theme, updateItem, text }) => {
         ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} 
         className={`todo-item ${checked ? 'completed' : 'normal' } ${theme}`} 
         id={id} 
+        key={id}
         checked={checked}
         onClick={() => updateItemStatus(id)}
       >

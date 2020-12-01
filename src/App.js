@@ -20,10 +20,15 @@ const App = () => {
     setNextId(nextId + 1)
   }
 
-  const updateItem = (key) => {
+  const updateItem = (id) => {
     const newList = [...items]
-    console.log(newList)
-    newList[key].checked = !newList[key].checked
+    
+    const editItem = newList.find((item => item.id === id))
+    
+    if (editItem) {
+      editItem.checked = !editItem.checked 
+    }
+
     setItems(newList)
   }
 
