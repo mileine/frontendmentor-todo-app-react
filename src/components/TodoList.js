@@ -1,6 +1,7 @@
 import React from 'react'
 import Filter from './Filter'
 import TodoItem from './TodoItem'
+import { DragDropContext } from 'react-beautiful-dnd'
 
 const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, clearCompleted }) => {
   
@@ -39,9 +40,11 @@ const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, clea
 
   return (
     <div className={`todo-list-wrapper ${theme}`}>
-      <ul>
-        { renderedFilteredList() }
-      </ul>
+      <DragDropContext>
+        <ul>
+          { renderedFilteredList() }
+        </ul>
+      </DragDropContext>
       <div className="todo-list-footer">
         <span className="items-left">{ getItemsLeft() } items left</span>
         <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
