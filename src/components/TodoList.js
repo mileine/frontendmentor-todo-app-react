@@ -48,7 +48,7 @@ const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, clea
       <div className="todo-list-footer">
         <span className="items-left">{ getItemsLeft() } items left</span>
         <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
-        <button className={`btn-clear ${theme}`} onClick={() => clearCompleted()}>Clear Completed</button>
+        <button aria-label="Clear Completed" className={`btn-clear ${theme}`} onClick={() => clearCompleted()}>Clear Completed</button>
       </div>
     </div>
   )
