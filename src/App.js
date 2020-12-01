@@ -3,10 +3,11 @@ import './styles/App.scss';
 import Header from './components/Header'
 import Form from './components/Form'
 import TodoList from './components/TodoList';
+import todoList from './data/data.json'
 
 const App = () => {
   const [theme, setTheme] = useState('light')
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState(todoList)
   const [selectedFilter, setSelectedFilter] = useState('all')
 
   const toggleTheme = () => {

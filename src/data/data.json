@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "text": "Compete online JavaScript course",
+    "checked": true
+  },
+  {
+    "id": 2,
+    "text": "Jog around the park 3x",
+    "checked": false
+  },
+  {
+    "id": 3,
+    "text": "10 minutes meditation",
+    "checked": false
+  },
+  {
+    "id": 4,
+    "text": "Read for 1 hour",
+    "checked": false
+  },
+  {
+    "id": 5,
+    "text": "Pick up groceries",
+    "checked": false
+  },
+  {
+    "id": 6,
+    "text": "Compete Todo App Frontend Mentor",
+    "checked": false
+  }
+]
