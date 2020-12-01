@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 
-const Form = ({ theme, addItem }) => {
+const Form = ({ theme, nextId, addItem }) => {
   const [text, setText] = useState('')
   const onSubmit = (evt) => {
     evt.preventDefault()
     const newValue = {
+      "id": nextId,
       "text": text,
       "checked": false
     }

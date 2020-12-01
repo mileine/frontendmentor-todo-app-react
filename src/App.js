@@ -9,15 +9,15 @@ const App = () => {
   const [theme, setTheme] = useState('light')
   const [items, setItems] = useState(todoList)
   const [selectedFilter, setSelectedFilter] = useState('all')
+  const [nextId, setNextId] = useState(1)
 
   const toggleTheme = () => {
     setTheme(theme === 'light'? 'dark': 'light')
   }
 
   const addItem = (newItem) => {
-    
     setItems(items => [...items, newItem])
-    
+    setNextId(nextId + 1)
   }
 
   const updateItem = (key) => {
@@ -33,6 +33,10 @@ const App = () => {
     console.log(`depois: ${selectedFilter}`)
   }
 
+  const updateItems = (updatedList) => {
+    setItems(updatedList)
+  }
+
   const clearCompleted = () => {
     const itemsArray = [...items]
     setItems(itemsArray.filter(item => !item.checked))
@@ -42,8 +46,8 @@ const App = () => {
     <div className={`container ${theme}`}>
       <div className="main">
         <Header theme={theme} toggleTheme={toggleTheme}/>
-        <Form theme={theme} addItem={addItem}/>
-        <TodoList theme={theme} items={items} updateItem={updateItem} selectedFilter={selectedFilter} updateFilter={updateFilter} clearCompleted={clearCompleted}/>
+        <Form nextId={nextId} theme={theme} addItem={addItem}/>
+        <TodoList theme={theme} items={items} updateItem={updateItem} updateItems={updateItems} selectedFilter={selectedFilter} updateFilter={updateFilter} clearCompleted={clearCompleted}/>
       </div>      
     </div>
   );

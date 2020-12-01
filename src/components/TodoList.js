@@ -1,27 +1,27 @@
 import React from 'react'
 import Filter from './Filter'
 import TodoItem from './TodoItem'
-import { DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
-const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, clearCompleted }) => {
+const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, updateItems, clearCompleted }) => {
   
-  const renderedList = items.map((item, id) => {
+  const renderedList = items.map(({id, text, checked}, index) => {
     return (
-      <TodoItem key={id} id={id} theme={theme} updateItem={updateItem} checked={item.checked} text={item.text}/>
+      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} checked={checked} text={text}/>
     )
   })
 
-  const renderedListActive = items.map((item, id) => {
-    if (item.checked) return ''
+  const renderedListActive = items.map(({id, text, checked}, index) => {
+    if (checked) return ''
     return (
-      <TodoItem key={id} id={id} theme={theme} updateItem={updateItem} checked={item.checked} text={item.text}/>
+      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} checked={checked} text={text}/>
     )
   })
 
-  const renderedListCompleted = items.map((item, id) => {
-    if (!item.checked) return ''
+  const renderedListCompleted = items.map(({id, text, checked}, index) => {
+    if (!checked) return ''
     return (
-      <TodoItem key={id} id={id} theme={theme} updateItem={updateItem} checked={item.checked} text={item.text}/>
+      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} checked={checked} text={text}/>
     )
   })
 
@@ -38,12 +38,24 @@ const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, clea
     return total - completedItems
   }
 
+  const handleOnDragEnd = (result) => {
+    const updatedList = Array.from(items)
+    const [reorderedItem] = updatedList.splice(result.source.index, 1)
+    updatedList.splice(result.destination.index, 0, reorderedItem)
+    updateItems(updatedList)
+  }
+
   return (
     <div className={`todo-list-wrapper ${theme}`}>
-      <DragDropContext>
-        <ul>
-          { renderedFilteredList() }
-        </ul>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
+        <Droppable droppableId="list">
+          {(provided) => (
+            <ul className="list" {...provided.droppableProp} ref={provided.innerRef}>
+              { renderedFilteredList() }
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
       </DragDropContext>
       <div className="todo-list-footer">
         <span className="items-left">{ getItemsLeft() } items left</span>
