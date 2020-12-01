@@ -6,7 +6,7 @@ const Header = ({ theme, toggleTheme }) => {
   return (
     <div className="header">
       <h1 className="title">TODO</h1>
-      <button className="btn-switch" onClick={() => toggleTheme()}>
+      <button aria-label="Switch Theme" className="btn-switch" onClick={() => toggleTheme()}>
        { theme === 'light' ? <DarkIcon/> : <LightIcon/>}
       </button>
     </div>
