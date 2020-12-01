@@ -16,7 +16,7 @@ const Form = ({ theme, addItem }) => {
     <form onSubmit={onSubmit}>
       <div className={`input-wrapper ${theme}`}>
         <div className={`item-check ${theme}`}></div>
-        <input type="text" value={text} placeholder="Create a new todo..." onChange={ evt => setText(evt.target.value) }/>
+        <input aria-label="Add new item" type="text" value={text} placeholder="Create a new todo..." onChange={ evt => setText(evt.target.value) }/>
       </div>
     </form>
   )
