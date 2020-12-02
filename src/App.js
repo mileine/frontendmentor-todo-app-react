@@ -55,6 +55,7 @@ const App = () => {
         <div className="filter-desktop">
           <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
         </div>
+        <span className="dnd-info">Drag and drop to reorder list</span>
       </div>      
     </div>
   );

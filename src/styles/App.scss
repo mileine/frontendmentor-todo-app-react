@@ -346,3 +346,16 @@ input:focus {
     display: none;
   }
 }
+
+/* INFO
+--------------------*/
+.dnd-info {
+  display: block;
+  margin: 40px auto;
+  &.light {
+    color: #9495A5;
+  }
+  &.dark {
+    color:  #5B5E7E;
+  }
+}
