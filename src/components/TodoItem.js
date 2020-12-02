@@ -22,7 +22,9 @@ const TodoItem = ({ index, id, checked, theme, updateItem, text }) => {
         onClick={() => updateItemStatus(id)}
       >
         <div className="description">
-          <div className={`item-check ${checked ? 'completed' : ''} ${theme}`}></div>
+          <div className="item-check-wrapper">
+            <div className={`item-check ${checked ? 'completed' : ''} ${theme}`}></div>
+          </div>
           <span>{text}</span>
         </div>
         <CompleteIcon className={`complete-icon ${completed ? 'disabled' : 'enabled'} ${theme}`} />

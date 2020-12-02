@@ -109,7 +109,6 @@ input {
   letter-spacing: -0.25px;
   background-color: transparent;
   border-color: transparent;
-  padding: 10px;
   width: 100%;
   position: relative;
   &::placeholder {
@@ -124,16 +123,22 @@ input:focus {
 
 /* LIST
 --------------------*/
+.item-check-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
 .item-check {
   display: inline-block;
   border-radius: 50%;
   height: 24px;
   width: 24px;
   background: transparent;
-  transition: background-color 0.5s ease;
-  margin-right: 10px;
   &.completed {
-    border: none;
+    border: 1px solid transparent;
     background: url('../assets/images/icon-check.svg'), linear-gradient(135deg, hsl(192, 100%, 67%),hsl(280, 87%, 65%));
     background-repeat: no-repeat;
     background-position: center;
@@ -217,6 +222,21 @@ input:focus {
   &:hover {
     .complete-icon.enabled {
       opacity: 1;
+    }
+    .item-check-wrapper {
+      background: linear-gradient(135deg, hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+      .item-check {
+        &:not(.completed) {
+          width: 22px;
+          height: 22px;
+          &.light {
+            background-color: #fff;
+          }
+          &.dark {
+            background-color: #25273D;
+          }
+        }
+      }
     }
   }
 }
