@@ -34,9 +34,7 @@ const App = () => {
   }
 
   const updateFilter = (selected) => {
-    console.log(`antes: ${selectedFilter}`)
     setSelectedFilter(selected)
-    console.log(`depois: ${selectedFilter}`)
   }
 
   const updateItems = (updatedList) => {
