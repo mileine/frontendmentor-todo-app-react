@@ -341,8 +341,8 @@ input:focus {
   }
 }
 
-.filter-desktop {
-  @include desktop {
+.filter-mobile {
+  @include tablet {
     display: none;
   }
 }

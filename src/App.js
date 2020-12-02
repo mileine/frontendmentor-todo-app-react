@@ -52,7 +52,7 @@ const App = () => {
         <Header theme={theme} toggleTheme={toggleTheme}/>
         <Form nextId={nextId} theme={theme} addItem={addItem}/>
         <TodoList theme={theme} items={items} updateItem={updateItem} updateItems={updateItems} selectedFilter={selectedFilter} updateFilter={updateFilter} clearCompleted={clearCompleted}/>
-        <div className="filter-desktop">
+        <div className="filter-mobile">
           <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
         </div>
         <span className="dnd-info">Drag and drop to reorder list</span>
