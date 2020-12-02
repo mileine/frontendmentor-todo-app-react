@@ -55,7 +55,7 @@ const App = () => {
         <div className="filter-mobile">
           <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
         </div>
-        <span className="dnd-info">Drag and drop to reorder list</span>
+        <span className={`dnd-info ${theme}`}>Drag and drop to reorder list</span>
       </div>      
     </div>
   );
