@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './styles/App.scss';
 import Header from './components/Header'
 import Form from './components/Form'
+import Filter from './components/Filter'
 import TodoList from './components/TodoList';
 import todoList from './data/data.json'
 
@@ -53,6 +54,9 @@ const App = () => {
         <Header theme={theme} toggleTheme={toggleTheme}/>
         <Form nextId={nextId} theme={theme} addItem={addItem}/>
         <TodoList theme={theme} items={items} updateItem={updateItem} updateItems={updateItems} selectedFilter={selectedFilter} updateFilter={updateFilter} clearCompleted={clearCompleted}/>
+        <div className="filter-desktop">
+          <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
+        </div>
       </div>      
     </div>
   );

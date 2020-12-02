@@ -6,7 +6,7 @@ const Filter = ({ selectedFilter, updateFilter, theme }) => {
     updateFilter(selected)
   }
   return(
-    <div className="filter-wrapper">
+    <div className={`filter-wrapper ${theme}`}>
       <button 
         aria-label="All"
         value="all"

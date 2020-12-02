@@ -25,8 +25,8 @@ button:focus {
   &.light {
     background: #fafafa;
     background-image: url('../assets/images/bg-desktop-light.jpg');
-    background-repeat: no-repeat;
     background-size: 100% auto;
+    background-repeat: no-repeat;
     @include mobile {
       background-image: url('../assets/images/bg-mobile-light.jpg');
     }
@@ -320,5 +320,29 @@ input:focus {
         color: #3A7CFD;
       }
     }
+  }
+  @include mobile {
+    width: 100%;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    .filter-option {
+      margin-right: 20px;
+    }
+    justify-content: center;
+    &.light{
+      background: white;
+      box-shadow: 0px 35px 50px #C2C3D680;
+    } 
+    &.dark{
+      background: #25273D;
+      box-shadow: 0px 35px 50px #00000080;
+    }
+  }
+}
+
+.filter-desktop {
+  @include desktop {
+    display: none;
   }
 }
