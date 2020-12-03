@@ -10,6 +10,11 @@ const TodoItem = ({ index, id, checked, theme, updateItem, text }) => {
     setCompleted(!completed)
   }
 
+  const onKeyPress = (event, id) => {
+    if (event.key === 'Enter') updateItem(id)
+    setCompleted(!completed)
+  }
+
   return (
     <Draggable key={id} draggableId={id.toString()} index={index}>
       {(provided) => (
@@ -20,6 +25,7 @@ const TodoItem = ({ index, id, checked, theme, updateItem, text }) => {
         key={id}
         checked={checked}
         onClick={() => updateItemStatus(id)}
+        onKeyPress={(event) => onKeyPress(event, id)}
       >
         <div className="description">
           <div className="item-check-wrapper">
