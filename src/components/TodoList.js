@@ -3,25 +3,25 @@ import Filter from './Filter'
 import TodoItem from './TodoItem'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
-const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, updateItems, clearCompleted }) => {
+const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, updateItems, deleteItem, clearCompleted }) => {
   
   const renderedList = items.map(({id, text, checked}, index) => {
     return (
-      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} checked={checked} text={text}/>
+      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} deleteItem={deleteItem} checked={checked} text={text}/>
     )
   })
 
   const renderedListActive = items.map(({id, text, checked}, index) => {
     if (checked) return ''
     return (
-      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} checked={checked} text={text}/>
+      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} deleteItem={deleteItem} checked={checked} text={text}/>
     )
   })
 
   const renderedListCompleted = items.map(({id, text, checked}, index) => {
     if (!checked) return ''
     return (
-      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} checked={checked} text={text}/>
+      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} deleteItem={deleteItem} checked={checked} text={text}/>
     )
   })
 

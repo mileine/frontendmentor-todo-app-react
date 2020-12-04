@@ -213,12 +213,10 @@ input:focus {
   }
   .complete-icon {
     transition: opacity 0.5s ease-in-out;
-    &.enabled {
-      opacity: 0;
-    }
-    &.disabled {
-      opacity: 0;
-    }
+    background: transparent;
+    border: none;
+    opacity: 0;
+    cursor: pointer;
     &.light > path {
       fill: #494C6B;
     }
@@ -237,7 +235,7 @@ input:focus {
     }
   }
   &:hover {
-    .complete-icon.enabled {
+    .complete-icon {
       opacity: 1;
     }
     .item-check-wrapper {

@@ -41,6 +41,11 @@ const App = () => {
     setItems(updatedList)
   }
 
+  const deleteItem = (id) => {
+    const newList = [...items]
+    setItems(newList.filter(item => item.id !== id))
+  }
+
   const clearCompleted = () => {
     const itemsArray = [...items]
     setItems(itemsArray.filter(item => !item.checked))
@@ -51,7 +56,7 @@ const App = () => {
       <div className="main">
         <Header theme={theme} toggleTheme={toggleTheme}/>
         <Form nextId={nextId} theme={theme} addItem={addItem}/>
-        <TodoList theme={theme} items={items} updateItem={updateItem} updateItems={updateItems} selectedFilter={selectedFilter} updateFilter={updateFilter} clearCompleted={clearCompleted}/>
+        <TodoList theme={theme} items={items} updateItem={updateItem} updateItems={updateItems} deleteItem={deleteItem} selectedFilter={selectedFilter} updateFilter={updateFilter} clearCompleted={clearCompleted}/>
         <div className="filter-mobile">
           <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
         </div>

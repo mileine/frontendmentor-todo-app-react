@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ReactComponent as CompleteIcon } from '../assets/images/icon-cross.svg'
 import { Draggable } from 'react-beautiful-dnd'
 
-const TodoItem = ({ index, id, checked, theme, updateItem, text }) => {
+const TodoItem = ({ index, id, checked, theme, updateItem, deleteItem, text }) => {
   const [completed, setCompleted] = useState(checked)
   
   const updateItemStatus = (id) => {
@@ -24,16 +24,17 @@ const TodoItem = ({ index, id, checked, theme, updateItem, text }) => {
         id={id} 
         key={id}
         checked={checked}
-        onClick={() => updateItemStatus(id)}
         onKeyPress={(event) => onKeyPress(event, id)}
       >
         <div className="description">
-          <div className="item-check-wrapper">
+          <div className="item-check-wrapper" onClick={() => updateItemStatus(id)}>
             <div className={`item-check ${checked ? 'completed' : ''} ${theme}`}></div>
           </div>
-          <span>{text}</span>
+          <span onClick={() => updateItemStatus(id)}>{text}</span>
         </div>
-        <CompleteIcon className={`complete-icon ${completed ? 'disabled' : 'enabled'} ${theme}`} />
+        <button aria-label="Delete Task" className={`complete-icon enabled ${theme}`} onClick={() => deleteItem(id)}>
+          <CompleteIcon className={theme} />
+        </button>
       </li>
       )}
      </Draggable>
