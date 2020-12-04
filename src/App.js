@@ -10,7 +10,7 @@ const App = () => {
   const [theme, setTheme] = useState('light')
   const [items, setItems] = useState(todoList)
   const [selectedFilter, setSelectedFilter] = useState('all')
-  const [nextId, setNextId] = useState(1)
+  const [nextId, setNextId] = useState(items.length + 2)
 
   const toggleTheme = () => {
     setTheme(theme === 'light'? 'dark': 'light')

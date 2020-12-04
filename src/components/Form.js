@@ -16,8 +16,8 @@ const Form = ({ theme, nextId, addItem }) => {
   return (
     <form onSubmit={onSubmit}>
       <div className={`input-wrapper ${theme}`}>
-        <div className={`input-check ${theme}`}></div>
-        <input aria-label="Add new item" type="text" value={text} placeholder="Create a new todo..." onChange={ evt => setText(evt.target.value) }/>
+        <button aria-label="Add new item" type="submit" className={`input-check ${theme}`}></button>
+        <input aria-label="Create a new todo..." type="text" value={text} placeholder="Create a new todo..." onChange={ evt => setText(evt.target.value) }/>
       </div>
     </form>
   )
