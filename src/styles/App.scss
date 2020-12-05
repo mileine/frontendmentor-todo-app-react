@@ -156,7 +156,6 @@ input:focus {
   letter-spacing: -0.25px;
   @include apply-theme('color', 'color-list-text');
   @include apply-theme('border-bottom', 'border');
-
   &.completed {
     @include apply-theme('color', 'color-list-text-completed');
     text-decoration: line-through;
