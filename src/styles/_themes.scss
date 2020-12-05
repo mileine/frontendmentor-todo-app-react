@@ -34,10 +34,27 @@ $themes: (
   )
 ); 
 
-@mixin apply-theme($key, $color) {
+@mixin apply-theme-color($key, $color) {
   @each $theme-name, $theme-color in $themes {
     .#{$theme-name} & {
       #{$key}: map-get(map-get($themes, $theme-name), $color )
+    }
+  }
+}
+
+$theme-list: light dark;
+
+@mixin backgroundImg {
+  @each $theme in $theme-list {
+    &.#{$theme} {
+      background: url('/assets/images/bg-desktop-'+$theme+'.jpg');
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      @include mobile {
+        background: url('/assets/images/bg-mobile-'+$theme+'.jpg');
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+      }
     }
   }
 }

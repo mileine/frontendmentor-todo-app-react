@@ -23,26 +23,7 @@ button, li {
 .container {
   min-height: 100vh;
   width: 100vw;
-  &.light {
-    background: url('../assets/images/bg-desktop-light.jpg') , #fff ;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    @include mobile {
-      background: url('../assets/images/bg-mobile-light.jpg') , #fff ;
-      background-size: 100% auto;
-      background-repeat: no-repeat;
-    }
-  }
-  &.dark {
-    background: url('../assets/images/bg-desktop-dark.jpg') , hsl(237, 14%, 26%);
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    @include mobile {
-      background: url('../assets/images/bg-mobile-dark.jpg') , hsl(237, 14%, 26%);
-      background-size: 100% auto;
-      background-repeat: no-repeat;
-    }
-  }
+  @include backgroundImg;
 }
 
 .main {
@@ -88,14 +69,14 @@ button, li {
   align-items: center;
   padding: 20px;
   border-radius: 5px;
-  @include apply-theme('background', 'color-list-bg');
-  @include apply-theme('box-shadow', 'shadow');
+  @include apply-theme-color('background', 'color-list-bg');
+  @include apply-theme-color('box-shadow', 'shadow');
   input {
     &:focus {
-      @include apply-theme('color', 'color-input');
+      @include apply-theme-color('color', 'color-input');
     }
     &::placeholder {
-      @include apply-theme('color', 'color-input-placeholder');
+      @include apply-theme-color('color', 'color-input-placeholder');
     }
   }
 }
@@ -124,7 +105,7 @@ input:focus {
   width: 24px;
   margin-right: 10px;
   background: transparent;
-  @include apply-theme('border', 'border');
+  @include apply-theme-color('border', 'border');
 }
 
 /* LIST
@@ -137,8 +118,8 @@ input:focus {
   margin-top: 25px;
   border-radius: 5px;
   min-height: 300px;
-  @include apply-theme('background', 'color-list-bg');
-  @include apply-theme('box-shadow', 'shadow');
+  @include apply-theme-color('background', 'color-list-bg');
+  @include apply-theme-color('box-shadow', 'shadow');
 }
 
 .todo-item{
@@ -151,10 +132,10 @@ input:focus {
   padding: 20px;
   font-size: 18px;
   letter-spacing: -0.25px;
-  @include apply-theme('color', 'color-list-text');
-  @include apply-theme('border-bottom', 'border');
+  @include apply-theme-color('color', 'color-list-text');
+  @include apply-theme-color('border-bottom', 'border');
   &.completed {
-    @include apply-theme('color', 'color-list-text-completed');
+    @include apply-theme-color('color', 'color-list-text-completed');
     text-decoration: line-through;
   }
   &:first-of-type {
@@ -193,7 +174,7 @@ input:focus {
     opacity: 0;
     cursor: pointer;
     & > path {
-      @include apply-theme('fill', 'color-path');
+      @include apply-theme-color('fill', 'color-path');
     }
     &:focus {
       opacity: 1;
@@ -201,7 +182,7 @@ input:focus {
   }
   &:not(:hover) {
     .item-check:not(.completed) {
-      @include apply-theme('border', 'border');
+      @include apply-theme-color('border', 'border');
     }
   }
   &:hover,
@@ -215,7 +196,7 @@ input:focus {
         &:not(.completed) {
           width: 22px;
           height: 22px;
-          @include apply-theme('background', 'color-list-bg');
+          @include apply-theme-color('background', 'color-list-bg');
         }
       }
     }
@@ -230,7 +211,7 @@ input:focus {
   .items-left {
     display: block;
     width: 100px;
-    @include apply-theme('color', 'color-btn');
+    @include apply-theme-color('color', 'color-btn');
     font-size: 14px;
     letter-spacing: -0.25px;
   }
@@ -246,12 +227,12 @@ input:focus {
   border: none;
   cursor: pointer;
   padding: 10px;
-  @include apply-theme('color', 'color-btn');
+  @include apply-theme-color('color', 'color-btn');
   &:focus {
     border: none;
   }
   &:hover {
-    @include apply-theme('color', 'color-btn-hover');
+    @include apply-theme-color('color', 'color-btn-hover');
   }
 }
 
@@ -268,12 +249,12 @@ input:focus {
     background: transparent;
     border: none;
     padding: 10px;
-    @include apply-theme('color', 'color-text-light');
+    @include apply-theme-color('color', 'color-text-light');
     &:focus {
       border: none;
     }
     &:hover {
-      @include apply-theme('color', 'color-btn-hover');
+      @include apply-theme-color('color', 'color-btn-hover');
     }
     &.selected {
       color: #3A7CFD;
@@ -288,8 +269,8 @@ input:focus {
       margin-right: 20px;
     }
     justify-content: center;
-    @include apply-theme('background', 'color-list-bg');
-    @include apply-theme('box-shadow', 'shadow');
+    @include apply-theme-color('background', 'color-list-bg');
+    @include apply-theme-color('box-shadow', 'shadow');
   }
 }
 
@@ -304,5 +285,5 @@ input:focus {
 .dnd-info {
   display: block;
   margin: 40px auto;
-  @include apply-theme('color', 'color-text-light');
+  @include apply-theme-color('color', 'color-text-light');
 }
