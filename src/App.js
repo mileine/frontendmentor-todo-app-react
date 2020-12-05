@@ -59,12 +59,12 @@ const App = () => {
     <div className={`container ${theme}`}>
       <div className="main">
         <Header theme={theme} toggleTheme={toggleTheme}/>
-        <Form nextId={nextId} theme={theme} addItem={addItem}/>
-        <TodoList theme={theme} items={items} updateItem={updateItem} updateItems={updateItems} deleteItem={deleteItem} selectedFilter={selectedFilter} updateFilter={updateFilter} clearCompleted={clearCompleted}/>
+        <Form nextId={nextId} addItem={addItem}/>
+        <TodoList items={items} updateItem={updateItem} updateItems={updateItems} deleteItem={deleteItem} selectedFilter={selectedFilter} updateFilter={updateFilter} clearCompleted={clearCompleted}/>
         <div className="filter-mobile">
           <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
         </div>
-        <span className={`dnd-info ${theme}`}>Drag and drop to reorder list</span>
+        <span className={`dnd-info`}>Drag and drop to reorder list</span>
       </div>      
     </div>
   );
