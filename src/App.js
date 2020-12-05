@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/App.scss';
 import Header from './components/Header'
 import Form from './components/Form'
@@ -11,6 +11,10 @@ const App = () => {
   const [items, setItems] = useState(todoList)
   const [selectedFilter, setSelectedFilter] = useState('all')
   const [nextId, setNextId] = useState(items.length + 2)
+
+  useEffect(() => {
+    document.body.className = theme
+  }, [theme])
 
   const toggleTheme = () => {
     setTheme(theme === 'light'? 'dark': 'light')

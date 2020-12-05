@@ -1,0 +1,33 @@
+@import 'vars';
+
+/* theme settings */
+$themes: (
+  "light": (
+    "color-bg": #fff,
+    "color-list-bg": #fff,
+    "color-list-text": $very-dark-grayish-blue,
+    "color-list-text-completed": $light-grayish-blue,
+    "color-input-placeholder": $dark-grayish-blue,
+    "color-input": $very-dark-grayish-blue, 
+    "border": 1px solid hsl(233, 11%, 84%), 
+    "shadow": 0px 35px 50px #C2C3D680
+  ),
+  "dark": (
+    "color-bg": $very-dark-blue,
+    "color-list-bg": $very-dark-desaturated-blue,
+    "color-list-text": $light-grayish-blue,
+    "color-list-text-completed": $very-dark-grayish-blue,
+    "color-input-placeholder": $very-dark-grayish-blue,
+    "color-input": $light-grayish-blue-hover,
+    "border": 1px solid hsl(237, 14%, 26%),
+    "shadow": 0px 35px 50px #00000080
+  )
+); 
+
+@mixin apply-theme($key, $color) {
+  @each $theme-name, $theme-color in $themes {
+    .#{$theme-name} & {
+      #{$key}: map-get(map-get($themes, $theme-name), $color )
+    }
+  }
+}

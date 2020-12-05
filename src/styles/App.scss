@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+@import 'vars';
 @import 'mixins';
+@import 'themes';
 
 * {
   padding: 0;
@@ -22,8 +24,8 @@ button, li {
 .container {
   min-height: 100vh;
   width: 100vw;
+  @include apply-theme('background', 'color-bg');
   &.light {
-    background: #fafafa;
     background-image: url('../assets/images/bg-desktop-light.jpg');
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -32,7 +34,6 @@ button, li {
     }
   }
   &.dark {
-    background: #171823;
     background-image: url('../assets/images/bg-desktop-dark.jpg');
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -85,21 +86,14 @@ button, li {
   align-items: center;
   padding: 20px;
   border-radius: 5px;
-  &.light{
-    background: white;
-    box-shadow: 0px 35px 50px #C2C3D680;
-    input:focus {
-      color: #393A4B;
+  @include apply-theme('background', 'color-list-bg');
+  @include apply-theme('box-shadow', 'shadow');
+  input {
+    &:focus {
+      @include apply-theme('color', 'color-input');
     }
-  } 
-  &.dark{
-    background: #25273D;
-    box-shadow: 0px 35px 50px #00000080;
-    input {
-      color: #4D5067;
-      &::placeholder {
-        color: #767992
-      }
+    &::placeholder {
+      @include apply-theme('color', 'color-input-placeholder');
     }
   }
 }
@@ -128,12 +122,14 @@ input:focus {
   width: 24px;
   margin-right: 10px;
   background: transparent;
-  &.light {
-    border: 1px solid #E3E4F1;
-  }
-  &.dark {
-    border: 1px solid #393A4B;
-  }
+  @include apply-theme('border', 'border');
+
+  // &.light {
+  //   border: 1px solid #E3E4F1;
+  // }
+  // &.dark {
+  //   border: 1px solid #393A4B;
+  // }
 }
 
 /* LIST

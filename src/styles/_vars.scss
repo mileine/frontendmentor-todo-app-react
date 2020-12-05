@@ -1,3 +1,4 @@
+@use "sass:map";
 /* */
 
 $bright-blue: hsl(220, 98%, 61%);
@@ -19,4 +20,4 @@ $light-grayish-blue: hsl(234, 39%, 85%);
 $light-grayish-blue-hover: hsl(236, 33%, 92%);
 $dark-grayish-blue: hsl(234, 11%, 52%);
 $very-dark-grayish-blue: hsl(233, 14%, 35%);
-$very-dark-grayish-blue-hover: hsl(237, 14%, 26%)
+$very-dark-grayish-blue-border: hsl(237, 14%, 26%);
