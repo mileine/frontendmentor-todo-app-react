@@ -32,7 +32,9 @@ const TodoItem = ({ index, id, checked, updateItem, deleteItem, text }) => {
           </div>
           <span onClick={() => updateItemStatus(id)}>{text}</span>
         </div>
-        <CompleteIcon className={`delete-icon enabled`} onClick={() => deleteItem(id)} />
+        <button aria-label="Delete task" className={`delete-icon enabled`} onClick={() => deleteItem(id)} >
+          <CompleteIcon/>
+        </button>
       </li>
       )}
      </Draggable>
