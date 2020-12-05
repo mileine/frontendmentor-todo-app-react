@@ -7,14 +7,16 @@ import TodoList from './components/TodoList';
 import todoList from './data/data.json'
 
 const App = () => {
+  const MY_TASKS = localStorage.getItem('myTasks') ? JSON.parse(localStorage.getItem('myTasks')) : [...todoList]
   const [theme, setTheme] = useState('light')
-  const [items, setItems] = useState(todoList)
+  const [items, setItems] = useState(MY_TASKS)
   const [selectedFilter, setSelectedFilter] = useState('all')
   const [nextId, setNextId] = useState(items.length + 2)
 
   useEffect(() => {
     document.body.className = theme
-  }, [theme])
+    localStorage.setItem('myTasks', JSON.stringify(items))
+  }, [theme, items])
 
   const toggleTheme = () => {
     setTheme(theme === 'light'? 'dark': 'light')
