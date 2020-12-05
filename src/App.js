@@ -58,7 +58,7 @@ const App = () => {
   }
 
   return (
-    <div className={`container ${theme}`}>
+    <div className={`container`}>
       <div className="main">
         <Header theme={theme} toggleTheme={toggleTheme}/>
         <Form nextId={nextId} addItem={addItem}/>

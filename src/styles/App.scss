@@ -19,11 +19,12 @@ button, li {
 }
 
 /* LAYOUT
- --------------------*/
+--------------------*/
 .container {
   min-height: 100vh;
   width: 100vw;
   @include backgroundImg;
+  @include apply-theme-color('background-color', 'color-bg');
 }
 
 .main {

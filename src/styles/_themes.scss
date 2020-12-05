@@ -46,7 +46,7 @@ $theme-list: light dark;
 
 @mixin backgroundImg {
   @each $theme in $theme-list {
-    &.#{$theme} {
+    .#{$theme} & {
       background: url('/assets/images/bg-desktop-'+$theme+'.jpg');
       background-size: 100% auto;
       background-repeat: no-repeat;
