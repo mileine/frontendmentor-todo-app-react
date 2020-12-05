@@ -195,14 +195,18 @@ input:focus {
     & > path {
       @include apply-theme('fill', 'color-path');
     }
+    &:focus {
+      opacity: 1;
+    }
   }
   &:not(:hover) {
     .item-check:not(.completed) {
       @include apply-theme('border', 'border');
     }
   }
-  &:hover {
-    .delete-icon {
+  &:hover,
+  &:focus {
+    .delete-icon{
       opacity: 1;
     }
     .item-check-wrapper {
