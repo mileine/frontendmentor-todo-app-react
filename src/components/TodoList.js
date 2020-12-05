@@ -39,6 +39,7 @@ const TodoList = ({ items, updateItem, selectedFilter, updateFilter, updateItems
   }
 
   const handleOnDragEnd = (result) => {
+    if (!result.destination) return;
     const updatedList = Array.from(items)
     const [reorderedItem] = updatedList.splice(result.source.index, 1)
     updatedList.splice(result.destination.index, 0, reorderedItem)
