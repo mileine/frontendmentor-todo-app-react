@@ -3,25 +3,25 @@ import Filter from './Filter'
 import TodoItem from './TodoItem'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
-const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, updateItems, deleteItem, clearCompleted }) => {
+const TodoList = ({ items, updateItem, selectedFilter, updateFilter, updateItems, deleteItem, clearCompleted }) => {
   
   const renderedList = items.map(({id, text, checked}, index) => {
     return (
-      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} deleteItem={deleteItem} checked={checked} text={text}/>
+      <TodoItem key={id} index={index} id={id} updateItem={updateItem} deleteItem={deleteItem} checked={checked} text={text}/>
     )
   })
 
   const renderedListActive = items.map(({id, text, checked}, index) => {
     if (checked) return ''
     return (
-      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} deleteItem={deleteItem} checked={checked} text={text}/>
+      <TodoItem key={id} index={index} id={id} updateItem={updateItem} deleteItem={deleteItem} checked={checked} text={text}/>
     )
   })
 
   const renderedListCompleted = items.map(({id, text, checked}, index) => {
     if (!checked) return ''
     return (
-      <TodoItem key={id} index={index} id={id} theme={theme} updateItem={updateItem} deleteItem={deleteItem} checked={checked} text={text}/>
+      <TodoItem key={id} index={index} id={id} updateItem={updateItem} deleteItem={deleteItem} checked={checked} text={text}/>
     )
   })
 
@@ -46,7 +46,7 @@ const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, upda
   }
 
   return (
-    <div className={`todo-list-wrapper ${theme}`}>
+    <div className={`todo-list-wrapper`}>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="list">
           {(provided) => (
@@ -59,8 +59,8 @@ const TodoList = ({ theme, items, updateItem, selectedFilter, updateFilter, upda
       </DragDropContext>
       <div className="todo-list-footer">
         <span className="items-left">{ getItemsLeft() } items left</span>
-        <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
-        <button aria-label="Clear Completed" className={`btn-clear ${theme}`} onClick={() => clearCompleted()}>Clear Completed</button>
+        <Filter selectedFilter={selectedFilter} updateFilter={updateFilter}/>
+        <button aria-label="Clear Completed" className={`btn-clear`} onClick={() => clearCompleted()}>Clear Completed</button>
       </div>
     </div>
   )

@@ -15,7 +15,7 @@ ul {
 }
 
 button, li {
-  outline-color: hsl(280, 87%, 65%);
+  outline-color: $bright-blue;
 }
 
 /* LAYOUT
@@ -123,13 +123,6 @@ input:focus {
   margin-right: 10px;
   background: transparent;
   @include apply-theme('border', 'border');
-
-  // &.light {
-  //   border: 1px solid #E3E4F1;
-  // }
-  // &.dark {
-  //   border: 1px solid #393A4B;
-  // }
 }
 
 /* LIST
@@ -142,14 +135,8 @@ input:focus {
   margin-top: 25px;
   border-radius: 5px;
   min-height: 300px;
-  &.light{
-    background: white;
-    box-shadow: 0px 35px 50px #C2C3D680;
-  } 
-  &.dark{
-    background: #25273D;
-    box-shadow: 0px 35px 50px #00000080;
-  }
+  @include apply-theme('background', 'color-list-bg');
+  @include apply-theme('box-shadow', 'shadow');
 }
 
 .todo-item{
@@ -162,26 +149,16 @@ input:focus {
   padding: 20px;
   font-size: 18px;
   letter-spacing: -0.25px;
+  @include apply-theme('color', 'color-list-text');
+  @include apply-theme('border-bottom', 'border');
+
   &.completed {
+    @include apply-theme('color', 'color-list-text-completed');
     text-decoration: line-through;
-    &.light {
-      color: #D1D2DA;
-    }
-    &.dark {
-      color: #4D5067;
-    }
   }
   &:first-of-type {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-  }
-  &.light {
-    color: #393A4B;
-    border-bottom: 1px solid #E3E4F1;
-  }
-  &.dark {
-    color: #C8CBE7;
-    border-bottom: 1px solid #393A4B;
   }
   .description {
     display: flex;
@@ -208,31 +185,23 @@ input:focus {
       background-position: center;
     }
   }
-  .complete-icon {
+  .delete-icon {
     transition: opacity 0.5s ease-in-out;
     background: transparent;
     border: none;
     opacity: 0;
     cursor: pointer;
-    &.light > path {
-      fill: #494C6B;
-    }
-    &.dark > path {
-      fill: #5B5E7E;
+    & > path {
+      @include apply-theme('fill', 'color-path');
     }
   }
   &:not(:hover) {
     .item-check:not(.completed) {
-      &.light {
-        border: 1px solid #E3E4F1;
-      }
-      &.dark {
-        border: 1px solid #393A4B;
-      }
+      @include apply-theme('border', 'border');
     }
   }
   &:hover {
-    .complete-icon {
+    .delete-icon {
       opacity: 1;
     }
     .item-check-wrapper {
@@ -241,12 +210,7 @@ input:focus {
         &:not(.completed) {
           width: 22px;
           height: 22px;
-          &.light {
-            background-color: #fff;
-          }
-          &.dark {
-            background-color: #25273D;
-          }
+          @include apply-theme('background', 'color-list-bg');
         }
       }
     }
@@ -261,7 +225,7 @@ input:focus {
   .items-left {
     display: block;
     width: 100px;
-    color: #9495A5;
+    @include apply-theme('color', 'color-btn');
     font-size: 14px;
     letter-spacing: -0.25px;
   }
@@ -277,14 +241,12 @@ input:focus {
   border: none;
   cursor: pointer;
   padding: 10px;
+  @include apply-theme('color', 'color-btn');
   &:focus {
     border: none;
   }
-  &.light {
-    color: #9495A5;
-  }
-  &.dark {
-    color: #5B5E7E;
+  &:hover {
+    @include apply-theme('color', 'color-btn-hover');
   }
 }
 
@@ -300,20 +262,16 @@ input:focus {
     font-weight: bold;
     background: transparent;
     border: none;
+    padding: 10px;
+    @include apply-theme('color', 'color-btn');
     &:focus {
       border: none;
     }
-    &.light {
-      color: #9495A5;
-      &.selected {
-        color: #3A7CFD;
-      }
+    &:hover {
+      @include apply-theme('color', 'color-btn-hover');
     }
-    &.dark {
-      color: #5B5E7E;
-      &.selected {
-        color: #3A7CFD;
-      }
+    &.selected {
+      color: #3A7CFD;
     }
   }
   @include mobile {
@@ -325,14 +283,8 @@ input:focus {
       margin-right: 20px;
     }
     justify-content: center;
-    &.light{
-      background: white;
-      box-shadow: 0px 35px 50px #C2C3D680;
-    } 
-    &.dark{
-      background: #25273D;
-      box-shadow: 0px 35px 50px #00000080;
-    }
+    @include apply-theme('background', 'color-list-bg');
+    @include apply-theme('box-shadow', 'shadow');
   }
 }
 

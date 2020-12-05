@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ReactComponent as CompleteIcon } from '../assets/images/icon-cross.svg'
 import { Draggable } from 'react-beautiful-dnd'
 
-const TodoItem = ({ index, id, checked, theme, updateItem, deleteItem, text }) => {
+const TodoItem = ({ index, id, checked, updateItem, deleteItem, text }) => {
   const [completed, setCompleted] = useState(checked)
   
   const updateItemStatus = (id) => {
@@ -20,7 +20,7 @@ const TodoItem = ({ index, id, checked, theme, updateItem, deleteItem, text }) =
       {(provided) => (
       <li 
         ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} 
-        className={`todo-item ${checked ? 'completed' : 'normal' } ${theme}`} 
+        className={`todo-item ${checked ? 'completed' : '' }`} 
         id={id} 
         key={id}
         checked={checked}
@@ -28,13 +28,11 @@ const TodoItem = ({ index, id, checked, theme, updateItem, deleteItem, text }) =
       >
         <div className="description">
           <div className="item-check-wrapper" onClick={() => updateItemStatus(id)}>
-            <div className={`item-check ${checked ? 'completed' : ''} ${theme}`}></div>
+            <div className={`item-check ${checked ? 'completed' : ''}`}></div>
           </div>
           <span onClick={() => updateItemStatus(id)}>{text}</span>
         </div>
-        <div className={`complete-icon enabled ${theme}`} onClick={() => deleteItem(id)}>
-          <CompleteIcon className={theme} />
-        </div>
+        <CompleteIcon className={`delete-icon enabled`} onClick={() => deleteItem(id)} />
       </li>
       )}
      </Draggable>

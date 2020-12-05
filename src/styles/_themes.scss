@@ -9,7 +9,11 @@ $themes: (
     "color-list-text-completed": $light-grayish-blue,
     "color-input-placeholder": $dark-grayish-blue,
     "color-input": $very-dark-grayish-blue, 
-    "border": 1px solid hsl(233, 11%, 84%), 
+    "color-path": hsl(235, 19%, 35%),
+    "color-btn": hsl(236, 9%, 61%),
+    "color-btn-hover": hsl(235, 19%, 35%),
+    "color-btn-active": hsl(220, 98%, 61%),
+    "border": 1px solid hsl(236, 33%, 92%), 
     "shadow": 0px 35px 50px #C2C3D680
   ),
   "dark": (
@@ -19,6 +23,10 @@ $themes: (
     "color-list-text-completed": $very-dark-grayish-blue,
     "color-input-placeholder": $very-dark-grayish-blue,
     "color-input": $light-grayish-blue-hover,
+    "color-path": hsl(236, 33%, 92%),
+    "color-btn": hsl(234, 11%, 52%),
+    "color-btn-hover": hsl(220, 98%, 61%),
+    "color-btn-active": hsl(236, 33%, 92%),
     "border": 1px solid hsl(237, 14%, 26%),
     "shadow": 0px 35px 50px #00000080
   )
