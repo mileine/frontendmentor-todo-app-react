@@ -18,25 +18,24 @@ const TodoItem = ({ index, id, checked, theme, updateItem, deleteItem, text }) =
   return (
     <Draggable key={id} draggableId={id.toString()} index={index}>
       {(provided) => (
-      <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
-        <li 
-          className={`todo-item ${checked ? 'completed' : 'normal' } ${theme}`} 
-          id={id} 
-          key={id}
-          checked={checked}
-          onKeyPress={(event) => onKeyPress(event, id)}
-        >
-          <div className="description">
-            <div className="item-check-wrapper" onClick={() => updateItemStatus(id)}>
-              <div className={`item-check ${checked ? 'completed' : ''} ${theme}`}></div>
-            </div>
-            <span onClick={() => updateItemStatus(id)}>{text}</span>
+      <li 
+        ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} 
+        className={`todo-item ${checked ? 'completed' : 'normal' } ${theme}`} 
+        id={id} 
+        key={id}
+        checked={checked}
+        onKeyPress={(event) => onKeyPress(event, id)}
+      >
+        <div className="description">
+          <div className="item-check-wrapper" onClick={() => updateItemStatus(id)}>
+            <div className={`item-check ${checked ? 'completed' : ''} ${theme}`}></div>
           </div>
-          <div className={`complete-icon enabled ${theme}`} onClick={() => deleteItem(id)}>
-            <CompleteIcon className={theme} />
-          </div>
-        </li>
-      </div>
+          <span onClick={() => updateItemStatus(id)}>{text}</span>
+        </div>
+        <div className={`complete-icon enabled ${theme}`} onClick={() => deleteItem(id)}>
+          <CompleteIcon className={theme} />
+        </div>
+      </li>
       )}
      </Draggable>
   )
