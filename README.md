@@ -8,7 +8,7 @@ This project is a challenge by [Frontend Mentor](https://www.frontendmentor.io).
 
 ## Challenge description
 
-*Users should be able to:
+Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
@@ -18,7 +18,7 @@ This project is a challenge by [Frontend Mentor](https://www.frontendmentor.io).
 - Filter by all/active/complete todos
 - Clear all completed todos
 - Toggle light and dark mode
-- Bonus: Drag and drop to reorder items on the list*
+- Bonus: Drag and drop to reorder items on the list
 
 View the full description [here](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
 
@@ -45,7 +45,7 @@ The additional behaviours below were also implemented:
 The [report](https://www.frontendmentor.io/solutions/todo-app-using-reactjs-I9UzE1vG2/report) generated on Frontend Mentor website lists 15 HTML issues that were not fixed. 
 
 
-### How to run
+## How to run
 
 1. Clone this repo.
 
@@ -57,3 +57,14 @@ The [report](https://www.frontendmentor.io/solutions/todo-app-using-reactjs-I9Uz
 ## Demo 
 
 View [demo](https://frontendmentor-todo-app-react.vercel.app/).
+
+## References
+
+Here's a list of useful resources I learned a lot from when working on this challenge:
+
+- [Gradient Borders in CSS](https://css-tricks.com/gradient-borders-in-css/)
+- [How I Theme My React App With Sass](https://www.webtips.dev/how-i-theme-my-react-app-with-sass)
+- [Sass Essential Training](https://www.linkedin.com/learning-login/share?forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fsass-essential-training%3Ftrk%3Dshare_ent_url)
+- [Sass mixin to have multiple theme based background images](https://medium.com/@traumastronaut/sass-mixin-to-have-multiple-theme-based-background-images-e278439299e6)
+- [Session Storage and Local Storage in React](https://www.robinwieruch.de/local-storage-react)
+- [How to Add Drag and Drop in React with React Beautiful DnD](https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/)
