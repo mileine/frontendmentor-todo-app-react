@@ -63,7 +63,7 @@ button, li {
 
 .attribution {
   position: fixed;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   font-size: 12px;
   width: 100%;
@@ -74,7 +74,7 @@ button, li {
   @include apply-theme-color('background-color', 'color-bg');
   @include apply-theme-color('color', 'color-list-text');
   a {
-    color: hsl(280, 87%, 65%);
+    color: $bright-blue;
   }
   > p {
     letter-spacing: .4px; 
