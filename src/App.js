@@ -67,7 +67,11 @@ const App = () => {
           <Filter selectedFilter={selectedFilter} updateFilter={updateFilter} theme={theme}/>
         </div>
         <span className={`dnd-info`}>Drag and drop to reorder list</span>
-      </div>      
+      </div>
+      <section class="attribution">
+          <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+          Coded with lots of<span class="love">❤️</span> by  <a href="https://www.frontendmentor.io/profile/mileine">Mi Souto</a>. </p>
+        </section>      
     </div>
   );
 }
